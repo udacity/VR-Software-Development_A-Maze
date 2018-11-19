@@ -66,6 +66,10 @@ public class Waypoint : MonoBehaviour
 
 	void Update()
 	{
+        if(Camera.main.transform.parent == null) {
+            Debug.LogError("Please ensure that the camera has a parent object for the waypoints to work properly.");
+            return;
+        }
 		bool occupied 	= Camera.main.transform.parent.transform.position == gameObject.transform.position;
 
 		switch(_state)
